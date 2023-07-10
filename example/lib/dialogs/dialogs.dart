@@ -9,20 +9,20 @@ const Curve _animCurve = Curves.linear;
 class AnimatedAboutDialog extends StatefulWidget {
   final Widget title, content;
   final List<Widget> actions;
-  final ScrollController actionScrollController, scrollController;
+  final ScrollController? actionScrollController, scrollController;
   final Curve insetAnimationCurve;
   final Duration insetAnimationDuration;
-  final VoidCallback dismiss;
+  final VoidCallback? dismiss;
 
   const AnimatedAboutDialog({
-    Key key,
-    this.title,
-    this.content,
-    this.actions,
+    Key? key,
+    required this.title,
+    required this.content,
+    required this.actions,
     this.actionScrollController,
     this.scrollController,
-    this.insetAnimationCurve,
-    this.insetAnimationDuration,
+    this.insetAnimationCurve = Curves.decelerate,
+    this.insetAnimationDuration = const Duration(milliseconds: 100),
     this.dismiss,
   }) : super(key: key);
 
@@ -32,8 +32,8 @@ class AnimatedAboutDialog extends StatefulWidget {
 
 class _AnimatedAboutDialogState extends State<AnimatedAboutDialog>
     with SingleTickerProviderStateMixin {
-  Animation<double> _scale;
-  AnimationController _controller;
+  late Animation<double> _scale;
+  late AnimationController _controller;
 
   @override
   void initState() {

@@ -5,7 +5,6 @@ import 'dart:io' show InternetAddress, Platform, SocketException;
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:ots/toast/colors.dart';
 import 'package:ots/toast/text_styles.dart';
 import 'package:ots/toast/types.dart';
@@ -125,6 +124,8 @@ void _listenToNetworkChanges(bottomPadding, {String? connectivityCheckAddress, N
         break;
       case ConnectivityResult.none:
         _showNetworkStateWidget(NetworkState.Disconnected, messenger, bottomPadding);
+        break;
+      default:
         break;
     }
   });

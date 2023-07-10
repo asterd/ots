@@ -40,7 +40,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  NotificationWidgetState instance;
+  late NotificationWidgetState instance;
 
   Widget notifications(){
     return Wrap(
